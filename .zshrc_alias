@@ -1,0 +1,93 @@
+alias zshconfig="mate ~/.zshrc"
+alias ohmyzsh="mate ~/.oh-my-zsh"
+alias k="kubectl"
+alias d="docker"
+alias settings="vi ~/.zshrc"
+alias p="~/Documents/Projects"
+alias c="code ."
+alias px="~/Documents/Projects/asx-xena"
+
+alias cert="cd ~/NotSecret/certs"
+alias reload="source ~/.zshrc"
+alias o="open -R ."
+
+#Git Vars
+branch_name=$(git symbolic-ref -q HEAD)
+branch_name=${branch_name##refs/heads/}
+branch_name=${branch_name:-HEAD}
+
+#Git Aliases
+alias gcanf="git commit -a --amend --no-edit && git push --force-with-lease"
+alias gcan="git commit -a --amend --no-edit"
+alias grh!="git reset --hard && git reset --hard $branch_name" 
+alias grho="git reset --hard origin/$branch_name"
+alias grh="git reset --hard"
+
+alias glog-"git log --oneline"
+alias gbD="git branch -D"
+alias gcob="git checkout -b"
+
+#Terraform Aliases
+alias tf="terraform"
+alias tfi="terraform init"
+alias tfp="terraform plan"
+alias tfs="terraform show"
+alias tfa="terraform apply"
+
+#Helm Aliases
+alias hla='helm ls --all'
+alias hl='helm ls'
+alias hu='helm uninstall'
+alias hg='helm get'
+alias hh='helm history'
+alias ss='statefulset'
+alias dep='deployment'
+
+#Docker Aliases
+alias db='docker build'
+alias dr='docker run -it --rm'
+alias dpl='docker pull'
+alias dp='docker push'
+
+#Kubernetes Aliases
+alias k='kubectl'
+alias kg='kubectl get'
+alias kd='kubectl describe'
+alias kx="kubectl exec -it"
+alias ke="kubectl edit"
+
+alias kgi='kubectl get ingress'
+alias kgin='kubectl get ingress -n'
+alias kgp='kubectl get pods'
+alias kgpw='kubectl get pods -o wide'
+alias kgpa='kubectl get pods -o wide -A'
+alias kgpn='kubectl get pods -n'
+alias kgd='kubectl get deployments'
+alias kgdn='kubectl get deployments -n'
+alias kgs='kubectl get service'
+alias kgsn='kubectl get service -n'
+alias kgn='kubectl get namespaces'
+alias kdp='kubectl describe pods'
+alias kdpn='kdp -n'
+alias kdi='k describe ingress'
+alias kdin='kdi -n'
+alias kset='k config set-context --current'
+alias kl="kubectl logs -f"
+alias kgd="kubectl get deployments"
+alias ked="kubectl edit deployment"
+alias kgse="kubectl get secrets"
+alias kgno="kubectl get nodes -L beta.kubernetes.io/instance-type,worker-group,karpenter.sh/provisioner-name,karpenter.sh/nodepool,topology.kubernetes.io/zone --sort-by='{metadata.creationTimestamp}'"
+alias kgnosl="kubectl get nodes --show-labels"
+alias kdno="kubectl describe nodes"
+alias kgcr="kubectl get clusterrole"
+alias kgcrb="kubectl get clusterrolebinding"
+alias kgr="kubectl get roles"
+alias kgrb="kubectl get rolebindings"
+alias kgvw="kubectl get validatingwebhookconfigurations"
+alias kgmw="kubectl get MutatingWebhookConfiguration"
+alias kdrain="kubectl drain --ignore-daemonsets --delete-emptydir-data"
+alias klog="stern"
+
+#Utilities
+alias kube_import="/bin/bash /Users/evan/Documents/Projects/asx-xena/xena-devops-utilities/kube_import/kube_import.sh"
+alias create_repo="/bin/bash /Users/evan/Documents/Projects/asx-xena/xena-devops-utilities/create-repo-files/create_repo.sh"

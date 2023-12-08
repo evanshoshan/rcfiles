@@ -1,0 +1,38 @@
+# Which plugins would you like to load?
+# Standard plugins can be found in $ZSH/plugins/
+# Custom plugins may be added to $ZSH_CUSTOM/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(
+git
+kubectl
+kube-ps1
+)
+
+#Kube PS1
+source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
+PS1='$(kube_ps1)'$PS1
+export KUBE_PS1_NS_ENABLE=true
+
+
+# Krew
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+
+#AWS
+export AWS_PAGER=""
+
+autoload -U add-zsh-hook
+add-zsh-hook -Uz chpwd (){ ll ; }
+
+#Pyenv
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+
+#NVM
+export NVM_DIR=~/.nvm
+source $(brew --prefix nvm)/nvm.sh
+
+#GPG
+GPG_TTY=$(tty)
+export GPG_TTY
