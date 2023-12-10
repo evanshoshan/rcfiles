@@ -2,7 +2,10 @@ alias zshconfig="mate ~/.zshrc"
 alias ohmyzsh="mate ~/.oh-my-zsh"
 alias k="kubectl"
 alias d="docker"
-alias settings="vi ~/.zshrc"
+alias zshrc="vi ~/.zshrc"
+alias aliases="vi ~/rcfiles/zshrc_alias"
+alias settings="vi ~/rcfiles/zshrc_settings"
+alias config="vi ~/rcfiles/config"
 alias p="~/Documents/Projects"
 alias c="code ."
 alias px="~/Documents/Projects/asx-xena"
@@ -10,6 +13,12 @@ alias px="~/Documents/Projects/asx-xena"
 alias cert="cd ~/NotSecret/certs"
 alias reload="source ~/.zshrc"
 alias o="open -R ."
+
+#Files
+alias ff="find . -type f -name"
+alias fd="find . -type d -name"
+alias grep="grep --color"
+alias G="| grep"
 
 #Git Vars
 branch_name=$(git symbolic-ref -q HEAD)

@@ -7,14 +7,21 @@ plugins=(
 git
 kubectl
 kube-ps1
+aws
+colorize
+docker
+docker-compose
+extract
 )
 
 #Kube PS1
-source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
+source ~/kube-ps1/kube-ps1.sh
 PS1='$(kube_ps1)'$PS1
 export KUBE_PS1_NS_ENABLE=true
 
-
+#ZSH
+ENABLE_CORRECTION="true"
+COMPLETION_WAITING_DOTS="true"
 # Krew
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
@@ -30,8 +37,8 @@ if command -v pyenv 1>/dev/null 2>&1; then
 fi
 
 #NVM
-export NVM_DIR=~/.nvm
-source $(brew --prefix nvm)/nvm.sh
+#export NVM_DIR=~/.nvm
+#source $(brew --prefix nvm)/nvm.sh
 
 #GPG
 GPG_TTY=$(tty)
