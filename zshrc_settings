@@ -16,7 +16,8 @@ extract
 
 #Kube PS1
 source ~/kube-ps1/kube-ps1.sh
-PS1='$(kube_ps1)'$PS1
+PROMPT='$(kube_ps1)'$PROMPT # or RPROMPT='$(kube_ps1)'
+#PS1='$(kube_ps1)'$PS1
 export KUBE_PS1_NS_ENABLE=true
 
 #ZSH
@@ -28,6 +29,7 @@ export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 #AWS
 export AWS_PAGER=""
 
+#ZSH Hook
 autoload -U add-zsh-hook
 add-zsh-hook -Uz chpwd (){ ll ; }
 
