@@ -1,0 +1,9 @@
+plugins=(
+  git
+  kubectl
+  kube-ps1
+  colorize
+  docker
+  docker-compose
+  extract
+)
