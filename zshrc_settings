@@ -1,7 +1,7 @@
 #Kube PS1
 source ~/kube-ps1/kube-ps1.sh
 PROMPT='$(kube_ps1)'$PROMPT # or RPROMPT='$(kube_ps1)'
-export KUBE_PS1_NS_ENABLE=true
+#export KUBE_PS1_NS_ENABLE=true
 
 #ZSH
 ENABLE_CORRECTION="true"
@@ -23,9 +23,37 @@ if command -v pyenv 1>/dev/null 2>&1; then
 fi
 
 #NVM
-#export NVM_DIR=~/.nvm
-#source $(brew --prefix nvm)/nvm.sh
+export NVM_DIR=~/.nvm
+source $(brew --prefix nvm)/nvm.sh
 
 #GPG
 GPG_TTY=$(tty)
 export GPG_TTY
+
+#zoxide
+eval "$(zoxide init --cmd cd zsh)"
+
+#Java
+export PATH="/opt/homebrew/opt/openjdk@17/bin:$PATH"
+export JAVA_HOME=$(/usr/libexec/java_home)
+export JAVA_TOOL_OPTIONS="-Djavax.net.ssl.trustStoreType=KeychainStore"
+
+#Colima
+start_colima() {
+  local CERTS="${HOME}/ZscalerRootCA.crt"
+  colima start --memory 4
+  colima ssh -- sudo cp ${CERTS} /usr/local/share/ca-certificates/
+  colima ssh -- sudo update-ca-certificates
+  colima ssh -- sudo service docker restart
+
+}
+[ -f ~/fubectl/fubectl.source ] && source ~/fubectl/fubectl.source
+
+#SSH
+ssh-add ~/NotSecret/ssh/eshoshan_eat_ssh_key.txt
+
+#fzf
+eval "$(fzf --zsh)"
+export FZF_DEFAULT_COMMAND='fd --follow --hidden --exclude .git --strip-cwd-prefix --color=always'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+source ~/rcfiles/fzf-git.sh

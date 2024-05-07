@@ -19,6 +19,7 @@ alias ff="find . -type f -name"
 alias fd="find . -type d -name"
 alias grep="grep --color"
 alias G="| grep"
+alias ls="eza --color=always --git"
 
 #Git Vars
 branch_name=$(git symbolic-ref -q HEAD)
@@ -26,6 +27,7 @@ branch_name=${branch_name##refs/heads/}
 branch_name=${branch_name:-HEAD}
 
 #Git Aliases
+alias gdiff="git diff --name-only --relative --diff-filter=d | xargs bat --diff"
 alias gcanf="git commit -a --amend --no-edit && git push --force-with-lease"
 alias gcan="git commit -a --amend --no-edit"
 alias grh!="git reset --hard && git reset --hard $branch_name" 
@@ -59,6 +61,7 @@ alias dpl='docker pull'
 alias dp='docker push'
 
 #Kubernetes Aliases
+alias kubectl='kubecolor'
 alias k='kubectl'
 alias kg='kubectl get'
 alias kd='kubectl describe'
@@ -96,7 +99,21 @@ alias kgvw="kubectl get validatingwebhookconfigurations"
 alias kgmw="kubectl get MutatingWebhookConfiguration"
 alias kdrain="kubectl drain --ignore-daemonsets --delete-emptydir-data"
 alias klog="stern"
+alias kdse="decode_secret_func"
+alias kns="kubectl get pods -A -o wide | grep "
+
+# Function to decode Kubernetes secret
+decode_secret_func() {
+    if [[ $# -eq 0 ]]; then
+        echo "Usage: decode_secret <secret_name>"
+        return 1
+    fi
+    
+    kubectl get secret "$1" -o=json | jq -r '.data | with_entries(.value |= @base64d)'
+}
 
 #Utilities
 alias kube_import="/bin/bash /Users/evan/Documents/Projects/asx-xena/xena-devops-utilities/kube_import/kube_import.sh"
 alias create_repo="/bin/bash /Users/evan/Documents/Projects/asx-xena/xena-devops-utilities/create-repo-files/create_repo.sh"
+alias cat="bat"
+alias vi="nvim"

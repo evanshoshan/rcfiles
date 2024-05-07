@@ -1,0 +1,6 @@
+nvm
+zoxide
+fzf
+bat
+eza
+neovim
