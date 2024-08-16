@@ -19,7 +19,9 @@ alias ff="find . -type f -name"
 alias fd="find . -type d -name"
 alias grep="grep --color"
 alias G="| grep"
-alias ls="eza --color=always --git"
+alias ll="eza --color=always --git --icons=always --no-permissions --long --no-time --no-user --no-filesize"
+alias mkdir="mkdir -p"
+alias tree="ll --tree"
 
 #Git Vars
 branch_name=$(git symbolic-ref -q HEAD)
@@ -101,6 +103,9 @@ alias kdrain="kubectl drain --ignore-daemonsets --delete-emptydir-data"
 alias klog="stern"
 alias kdse="decode_secret_func"
 alias kns="kubectl get pods -A -o wide | grep "
+alias kgspc="kubectl get secretproviderclass"
+alias kdspc="kubectl describe secretproviderclass"
+alias kespc="kubectl edit secretproviderclass"
 
 # Function to decode Kubernetes secret
 decode_secret_func() {
@@ -116,4 +121,5 @@ decode_secret_func() {
 alias kube_import="/bin/bash /Users/evan/Documents/Projects/asx-xena/xena-devops-utilities/kube_import/kube_import.sh"
 alias create_repo="/bin/bash /Users/evan/Documents/Projects/asx-xena/xena-devops-utilities/create-repo-files/create_repo.sh"
 alias cat="bat"
+alias v="vi ."
 alias vi="nvim"

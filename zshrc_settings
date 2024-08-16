@@ -14,7 +14,6 @@ export AWS_PAGER=""
 
 #ZSH Hook
 autoload -U add-zsh-hook
-alias ll="ls -l"
 add-zsh-hook -Uz chpwd (){ ll ; }
 
 #Pyenv
