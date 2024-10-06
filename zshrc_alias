@@ -19,7 +19,7 @@ alias ff="find . -type f -name"
 alias fd="find . -type d -name"
 alias grep="grep --color"
 alias G="| grep"
-alias ls="eza --color=always --git"
+alias ls="eza --color=always "
 
 #Git Vars
 branch_name=$(git symbolic-ref -q HEAD)
@@ -118,5 +118,5 @@ alias dc="docker-compose"
 #Utilities
 alias kube_import="/bin/bash /Users/evan/Documents/Projects/asx-xena/xena-devops-utilities/kube_import/kube_import.sh"
 alias create_repo="/bin/bash /Users/evan/Documents/Projects/asx-xena/xena-devops-utilities/create-repo-files/create_repo.sh"
-alias cat="bat"
+alias bat="batcat"
 alias vi="nvim"

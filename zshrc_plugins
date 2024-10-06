@@ -4,5 +4,6 @@ plugins=(
   kubectl
   colorize
   docker
+  kube-ps1
   extract
 )
