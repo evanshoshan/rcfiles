@@ -30,7 +30,7 @@ GPG_TTY=$(tty)
 export GPG_TTY
 
 #zoxide
-eval "$(zoxide init --cmd cd zsh)"
+eval "$(zoxide init zsh)"
 
 #Java
 export PATH="/opt/homebrew/opt/openjdk@17/bin:$PATH"
